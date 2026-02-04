@@ -1,3 +1,8 @@
+# HOW TO RUN
+npm install
+node app.js
+
+## Project Structure
 https://dev.to/moibra/best-practices-for-structuring-an-expressjs-project-148i
 
 1. Separate Concerns: Use MVC Pattern

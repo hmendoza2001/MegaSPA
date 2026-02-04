@@ -1,6 +1,14 @@
 
 // just return a hardcoded list for now
 // TODO: Fetch these values from DB
+
+class TempCountry {
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+  }
+}
+
 const countryList = [
   new TempCountry("USA", 2025),
   new TempCountry("China", 1882),
