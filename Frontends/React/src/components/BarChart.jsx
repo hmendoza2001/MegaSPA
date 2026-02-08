@@ -1,8 +1,20 @@
+/**
+ * @description Bar Chart component that uses amcharts.
+ * @author Hector Mendoza
+ * TODO: Fetch data from the backend.
+ */
+
 import { useLayoutEffect } from 'react';
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
+/**
+ * Definition for BarChart function component.
+ *
+ * @param {*} props Properties
+ * @returns Handle to component
+ */
 function BarChart(props) {
   useLayoutEffect(() => {
     // Create root element
