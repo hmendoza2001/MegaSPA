@@ -4,7 +4,7 @@
  * TODO: Fetch data from the backend.
  */
 
-import { useLayoutEffect } from 'react';
+import { useState, useLayoutEffect, useRef } from 'react';
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -16,6 +16,10 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
  * @returns Handle to component
  */
 function BarChart(props) {
+  const xAxisRef = useRef(null);
+  const seriesRef = useRef(null);
+  const [data, setData] = useState(null);
+
   useLayoutEffect(() => {
     // Create root element
     // https://www.amcharts.com/docs/v5/getting-started/#Root_element
@@ -102,6 +106,7 @@ function BarChart(props) {
       return chart.get("colors").getIndex(series.columns.indexOf(target));
     });
 
+    /*
     // Set data
     let data = [{
       country: "USA",
@@ -140,18 +145,52 @@ function BarChart(props) {
 
     xAxis.data.setAll(data);
     series.data.setAll(data);
+    */
+
+    const fetchData = async() => {
+      try {
+        const response = await fetch('http://localhost:8080/v1/countries');
+        if (!response.ok) {
+          throw new Error('Network response was not OK');
+        }
+        const result = await response.json();
+        console.log(result);
+        setData(result);
+      } catch (error) {
+        alert("Error fetching data");
+      }
+    };
+    fetchData();
 
     // Add cursor
     // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
     var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
     //cursor.lineY.set("visible", false);
 
+    // store current chart reference
+    xAxisRef.current = xAxis;
+    seriesRef.current = series;
+
     // remember to do this, otherwise you get the error "You cannot have
     // multiple Roots on the same DOM node"
     return () => {
       root.dispose();
     };
-  }, []); // end of useLayoutEffect
+  }, []); // end of useLayoutEffect, empty dependency array ensures this runs only once
+
+  /**
+   * Second useLayoutEffect is called when data changes. This updates the chart
+   * data.
+   */
+  useLayoutEffect(() => {
+    if (xAxisRef.current) {
+      if (data)
+      {
+        xAxisRef.current.data.setAll(data);
+        seriesRef.current.data.setAll(data);
+      }
+    }
+  }, [data]); // Dependency on data state
 
   return (
     <div id="chartdiv" style={{ width: "800px", height: "500px" }}></div>

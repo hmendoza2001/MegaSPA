@@ -6,24 +6,24 @@ use serde_json;
 // serialize for json conversion
 #[derive(Serialize)]
 pub struct Country {
-  pub name: String,
+  pub country: String,
   pub value: i32,
 }
 
 ///
 pub fn get_country_list() -> String {
   let country_list = vec![
-    Country { name: String::from("USA"), value: 2025 },
-    Country { name: String::from("China"), value: 1882 },
-    Country { name: String::from("Japan"), value: 1809 },
-    Country { name: String::from("Germany"), value: 1322 },
-    Country { name: String::from("UK"), value: 1122 },
-    Country { name: String::from("France"), value: 1114 },
-    Country { name: String::from("India"), value: 984 },
-    Country { name: String::from("Spain"), value: 711 },
-    Country { name: String::from("Netherlands"), value: 665 },
-    Country { name: String::from("South Korea"), value: 443 },
-    Country { name: String::from("Canada"), value: 441 },
+    Country { country: String::from("USA"), value: 2025 },
+    Country { country: String::from("China"), value: 1882 },
+    Country { country: String::from("Japan"), value: 1809 },
+    Country { country: String::from("Germany"), value: 1322 },
+    Country { country: String::from("UK"), value: 1122 },
+    Country { country: String::from("France"), value: 1114 },
+    Country { country: String::from("India"), value: 984 },
+    Country { country: String::from("Spain"), value: 711 },
+    Country { country: String::from("Netherlands"), value: 665 },
+    Country { country: String::from("South Korea"), value: 443 },
+    Country { country: String::from("Canada"), value: 441 },
   ];
 
   // serde_json::to_string returns Result which is defined as follows:

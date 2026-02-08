@@ -3,8 +3,8 @@
 // TODO: Fetch these values from DB
 
 class TempCountry {
-  constructor(name, value) {
-    this.name = name;
+  constructor(country, value) {
+    this.country = country;
     this.value = value;
   }
 }

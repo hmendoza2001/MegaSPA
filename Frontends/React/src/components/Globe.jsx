@@ -89,7 +89,7 @@ function Globe(props) {
     return () => {
       root.dispose();
     };
-  }, []); // end of useLayoutEffect
+  }, []); // end of useLayoutEffect, empty dependency array ensures this runs only once
 
   return (
     <div id="chartdiv" style={{ width: "800px", height: "500px" }}></div>

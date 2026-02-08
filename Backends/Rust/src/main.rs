@@ -5,6 +5,8 @@
 
 // import crates
 use rocket::{launch};
+use rocket::http::Method;
+use rocket_cors::{AllowedOrigins, CorsOptions};
 
 // tell the compiler to look for and include the modules' code
 mod config;
@@ -25,8 +27,21 @@ fn rocket() -> _ {
     ..rocket::Config::debug_default() // use other defaults for the debug profile
   };
 
+  let cors = CorsOptions::default()
+    .allowed_origins(AllowedOrigins::all())
+    .allowed_methods(
+        vec![Method::Get, Method::Post, Method::Put, Method::Delete]
+            .into_iter()
+            .map(From::from)
+            .collect(),
+    )
+    .allow_credentials(true)
+    .to_cors()
+    .expect("Error creating CORS fairing");
+
   // mount endpoints to routes (see routes module)
   rocket::custom(rocket_config)
+    .attach(cors)
     .mount("/", rocket::routes![
       routes::index,
       routes::countries::countries])

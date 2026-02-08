@@ -11,9 +11,11 @@ const config = require('./config/config');
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
 const countryRoutes = require('./routes/countries');
+const cors = require('cors');
 
 // main app handle
 const app = express();
+app.use(cors());
 
 // register middleware
 app.use(logger);
