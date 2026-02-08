@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@amcharts/amcharts5": "^5.15.6",
+    "@amcharts/amcharts5-geodata": "^5.1.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
