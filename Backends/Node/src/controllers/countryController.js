@@ -1,14 +1,18 @@
 
-const countryList = require('../models/Country');
+const countryService = require('../services/countryService');
 
-exports.getCountries = async (req, res) => {
-  //const countries = await Country.find();
-  const countries = countryList;
-  res.json(countries);
+const countryController = {
+  getCountries: async (req, res) => {
+    try
+    {
+      const countries = await countryService.getAllCountries();
+      res.status(200).json(countries);
+    }
+    catch (error)
+    {
+      res.status(500).json({ message: error.message });
+    }
+  }
 };
 
-exports.createCountry = async (req, res) => {
-  const newCountry = new Country(req.body);
-  await newCountry.save();
-  res.status(201).json(newCountry);
-};
+module.exports = countryController;

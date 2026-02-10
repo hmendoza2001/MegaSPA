@@ -1,6 +1,6 @@
-// src/middlewares/logger.js
+
 const logger = (req, res, next) => {
-  console.log('Middleware was called');
+  console.log("Middleware logger was called...");
   console.log(`${req.method} ${req.url}`);
   next();
 };

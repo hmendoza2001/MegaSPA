@@ -2,7 +2,6 @@
  * @file Configuration module.
  * @description Holds configuration functionality for the app.
  * @author Hector Mendoza
- * @since 1.0.0
  * @requires dotenv
  */
 
@@ -12,6 +11,6 @@ require('dotenv').config();
 // export values
 module.exports = {
   port: process.env.PORT || 8000,
-  mongoURI: process.env.MONGO_URI,
+  atlasUri: process.env.MONGO_ATLAS_URI,
   jwtSecret: process.env.JWT_SECRET
 };
