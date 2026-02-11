@@ -1,6 +1,6 @@
 # HOW TO RUN
-npm install
-node app.js
+- npm install
+- node app.js
 
 ## Project Structure
 https://dev.to/moibra/best-practices-for-structuring-an-expressjs-project-148i

@@ -1,2 +1,2 @@
 # HOW TO RUN
-cargo run
+- cargo run
