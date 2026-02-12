@@ -20,8 +20,17 @@
  * SOFTWARE.
  */
 
-use crate::{models::country::get_country_list};
+package com.example.javaApi;
 
-pub fn get_countries() -> String {
-    return get_country_list();
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+/**
+ * TODO: Add unit tests.
+ */
+@SpringBootTest
+class JavaApiTests {
+    @Test
+    void contextLoads() {
+    }
 }

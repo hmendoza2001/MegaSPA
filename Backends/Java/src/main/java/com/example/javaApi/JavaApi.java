@@ -20,8 +20,17 @@
  * SOFTWARE.
  */
 
-use crate::{models::country::get_country_list};
+package com.example.javaApi;
 
-pub fn get_countries() -> String {
-    return get_country_list();
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * Main Spring Boot application class. Execution starts here.
+ */
+@SpringBootApplication
+public class JavaApi {
+    public static void main(String[] args) {
+        SpringApplication.run(JavaApi.class, args);
+    }
 }

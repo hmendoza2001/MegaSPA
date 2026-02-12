@@ -7,15 +7,18 @@ A simple SPA template in the following languages and technologies:
 - Java
 - Node.js
 - Python
+- Ruby
 - Rust
 
 ## Frontends
 - Angular
 - Flutter
+- Ionic
 - Next.js
 - React
 - ReactNative
-- Vue
+- Svelte
+- Vue.js
 
 ## Databases
 - SQL

@@ -1,58 +1,65 @@
+/*
+ * Copyright (c) 2025 Hector Mendoza
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.example.javaApi.entities;
 
+// These import would be for the SQL version of the database.
 //import jakarta.persistence.*;
 //import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * POJO class representing the ORM/ODM version of the Country table/collection.
+ */
 //@Entity
 //@Table(name = "country")
 @Document(collection = "countries")
 public class Country
 {
-  //@Id
-  //private Long id;
+    // Note: In mongo, excluding this field automatically makes a projection to
+    // exclude it
+    //@Id
+    //private Long id;
 
-  // Note: In mongo, excluding thisa field automatically makes a projection to
-  // exclude it
-  //@Id
-  //private String id;
+    //@Column(nullable = false)
+    private String country;
 
-  //@Column(nullable = false)
-  private String country;
+    //@Column(nullable = false)
+    private int value;
 
-  //@Column(nullable = false)
-  private int value;
+    public String getCountry() {
+        return country;
+    }
 
-  //public Long getId()
-  //public String getId()
-  //{
-  //  return id;
-  //}
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
-  //public void setId(Long id)
-  //public void setId(String id)
-  //{
-  //  this.id = id;
-  //}
+    public int getValue() {
+        return value;
+    }
 
-  public String getCountry()
-  {
-    return country;
-  }
-
-  public void setCountry(String country)
-  {
-    this.country = country;
-  }
-
-  public int getValue()
-  {
-    return value;
-  }
-
-  public void setValue(int value)
-  {
-    this.value = value;
-  }
+    public void setValue(int value) {
+        this.value = value;
+    }
 }
