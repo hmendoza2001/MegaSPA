@@ -27,6 +27,8 @@
  */
 
 import { useState, useLayoutEffect, useRef } from 'react';
+
+// amCharts imports
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -170,16 +172,20 @@ function BarChart(props) {
     */
 
     const fetchData = async() => {
-      try {
+      try
+      {
         const response = await fetch('http://localhost:8080/v1/countries');
-        if (!response.ok) {
+        if (!response.ok)
+        {
           throw new Error('Network response was not OK');
         }
         const result = await response.json();
         console.log(result);
         setData(result);
-      } catch (error) {
-        alert("Error fetching data");
+      }
+      catch (error)
+      {
+        alert("Error fetching data " + error);
       }
     };
     fetchData();

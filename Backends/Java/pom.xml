@@ -18,11 +18,15 @@
   <url/>
 
   <licenses>
-    <license>MIT</license>
+    <license>
+      <name>MIT</name>
+    </license>
   </licenses>
 
   <developers>
-    <developer>Hector Mendoza</developer>
+    <developer>
+      <name>Hector Mendoza</name>
+    </developer>
   </developers>
 
   <scm>

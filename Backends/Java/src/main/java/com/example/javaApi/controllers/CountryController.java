@@ -58,7 +58,7 @@ public class CountryController
      *
      * @return List of Country objects.
      */
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = "*")
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
         return countryService.getAllCountries();
